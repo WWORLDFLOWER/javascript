@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>錯誤捕捉</h1>
+
+    <script>
+
+        // try{
+        //     my_func("welcome");
+        //     alert("hello");
+        // }catch(error){
+        //     alert("執行error");
+        //     console.log(error);
+        // }
+
+        // alert("繼續執行");
+
+        function division(x, y){
+            try {
+                if(y == 0){
+                    throw "分母不能等於 0。";
+                }
+                return x / y;
+            } catch(error) {
+                return error;
+            } finally{
+                console.log("執行完畢")
+            }
+        }
+
+        var result1 = division(5, 2);
+        console.log(result1); // 2.5
+
+        var result2 = division(5, 0);
+        console.log(result2); // Infinity
+        
+    </script>
+</body>
+</html>

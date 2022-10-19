@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.img_block{
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            font-size: 0;
+        }
+        div.img_block > img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">按鈕</button>
+    <div class="img_block"><img src="https://picsum.photos/id/222/200/200"></div>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        // btn.style.border-radius = 50% ;
+        //console.log(btn); 
+
+        btn.addEventListener("click",function(){
+            // console.log(this);
+
+            let img_block = document.getElementsByClassName("img_block")[0];
+
+            img_block.style.transition = "border-radius 1s";
+            img_block.style.overflow = "hidden";
+
+            if(img_block.classList.contains("-circle")){
+                img_block.classList.remove("-circle");
+                img_block.style.borderRadius ="0%";
+            }else{
+                img_block.classList.add("-circle");
+                img_block.style.borderRadius = "50%"
+            }
+        });
+        
+
+    </script>
+</body>
+</html>

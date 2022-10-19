@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>regular_expression</h1>
+
+    <script>
+        // 定義一個比對的規則，以下的 \s{1} 表示僅能有1個空格。
+        // var pattern = /the\s{1}book/;
+        // // 或以下這個寫法：
+        // //var pattern = new RegExp(/the\s{1}book/);
+
+
+        // // 以下是想要比對的字串
+        // var str = "the book";
+        // //var str = "The book";
+
+        // alert(pattern.test(str));
+
+        var pattern = /^09\d{8}$/;
+
+        var str = "0941327365";
+
+        console.log(pattern.test(str));
+
+
+    </script>
+    
+</body>
+</html>

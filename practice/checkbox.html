@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="checkbox" id="check_all"><label for="check_all">全選</label>
+
+    <hr>
+
+    <input type="checkbox" class="item" id="option1"> <label for="option1">選項一</label>
+    <input type="checkbox" class="item" id="option2"> <label for="option2">選項二</label>
+    <input type="checkbox" class="item" id="option3"> <label for="option3">選項三</label>
+
+    <script>
+        var check_all = document.getElementById("check_all");
+        check_all.addEventListener("click", function(){
+            var that = this;
+            var all_items = document.querySelectorAll("input.item");
+            all_items.forEach(function(item, i){
+                item.checked = that.checked;
+            });
+        });
+
+        var all_items = document.querySelectorAll("input.item");
+        all_items.forEach(function(item, i){
+            item.addEventListener("click",function(){
+
+                var checked_length = document.querySelectorAll("input.item:checked").length;
+                var all_length = document.querySelectorAll("input.item").length;
+
+                if(checked_length == all_length){
+                    check_all.checked = true;
+                }else{
+                    check_all.checked = false;
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>array_sort</h1>
+
+    <script>
+        // var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        // fruits.sort();
+
+        // console.log(fruits); // ["Apple", "Banana", "Mango", "Orange"]
+
+        // var points = [40, 100, 1, 5, 25, 10];
+        // points.sort(function(a, b){
+        //     return a - b;
+        // }); // 字串方式去排序
+
+        // console.log(points); // [1, 10, 100, 25, 40, 5]
+
+        
+        var cars = [
+            {type:"Volvo", year:2016},
+            {type:"Saab", year:2001},
+            {type:"BMW", year:2010}
+        ];
+
+        cars.sort(function(a , b){
+            return a.year - b.year;
+        });
+
+        console.log(cars);
+    </script>
+    
+</body>
+</html>

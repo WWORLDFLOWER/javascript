@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>json</h1>
+
+    <script>
+
+        // var abc = "文字";
+
+        // // console.log(abc);
+        // localStorage.setItem("data", abc);
+
+        // var my_data = localStorage.getItem("data");
+        // console.log(my_data);
+
+        // var car = {
+        //     color:"white",
+        //     price: 299
+        // };
+
+        // localStorage.setItem("car_data", JSON.stringify(car));
+
+        var car_data = JSON.parse(localStorage.getItem("car_data"));
+        console.log(car_data);
+
+    </script>
+    
+</body>
+</html>

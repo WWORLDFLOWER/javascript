@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        div.parent_block{
+            border: 1px solid black;
+            display: flex;
+        }
+        div.left_block{
+            border: 1px solid red;
+            flex-basis: 100px;
+            flex-shrink: 0;
+        }
+        div.left_block a.link{
+            text-decoration: none;
+        }
+        div.left_block a.-on{
+            color: red;
+        }
+        div.right_block{
+            border: 1px solid blue;
+            flex-grow: 1;
+            height: 300px;
+            overflow-y: auto;
+            
+            /* offsetTop 才會相對於這個元素 */
+            position: relative;
+        }
+        div.each_block{
+            border: 1px solid orange;
+            
+            /* height: 500px; */
+            /* min-height: 100%; */
+            min-height: calc(100% + 2px);
+        }
+    </style>
+
+</head>
+<body>
+
+    <div style="border: 1px solid black; height: 1000px"></div>
+
+    <div class="parent_block">
+
+        <div class="left_block">
+          <ul class="list">
+            <li><a href="#" id="link1" class="link -on">一</a></li>
+            <li><a href="#" id="link2" class="link">二</a></li>
+            <li><a href="#" id="link3" class="link">三</a></li>
+          </ul>
+        </div>
+      
+        <div class="right_block" id="scroll_block">
+          <div class="each_block" data-id="link1">內容一</div>
+          <div class="each_block" data-id="link2">內容二</div>
+          <div class="each_block" data-id="link3">內容三</div>
+        </div>
+      
+    </div>
+
+    <script>
+
+        var scroll_block_el = document.getElementById("scroll_block");
+        scroll_block_el.addEventListener("scroll",function(){
+            // console.log("tt");
+            let left_links = this.closest("div.parent_block").querySelectorAll("a.link");
+            // console.log(left_links);
+            left_links.forEach(function(item, i){
+                // console.log(item);
+                // console.log(i);
+                item.classList.remove("-on");
+            })
+
+            // for(let i = 0; i < left_links.length; i++){
+            //     left_link[i].classList.remove("-on");
+            // }
+            let blocks = this.querySelectorAll(".each_block");
+            let link;
+
+            // console.log(blocks[0].offsetTop);
+            // console.log(this.scrollTop);
+            // console.log( blocks[0].offsetTop - this.scrollTop);
+            for(let i = 0; i < blocks.length; i++){
+                let each_pos = blocks[i].offsetTop - this.scrollTop;
+                if(each_pos <= 0 && each_pos >= -blocks[i].offsetHeight){
+                    // console.log( blocks[i] );
+                    let link_id = blocks[i].getAttribute("data-id");
+                    // console.log(link_id);
+                    link = document.getElementById(link_id);
+                }
+        
+            }
+
+            link.classList.add("-on");
+        });
+
+        var leftlinks = document.getElementsByClassName("link");
+        // console.log(leftlinks);
+        for(let i = 0; i < leftlinks.length; i++){
+            // console.log(i);
+            leftlinks[i].addEventListener("click",function(e){
+                // console.log(e);
+                e.preventDefault();
+                let link_id = this.getAttribute("id");
+                // console.log(link_id);
+                let each_block = document.querySelector("div.each_block[data-id=" + link_id +"]");
+                
+                // 用跳的
+                // scroll_block_el.scrollTop = each_block.offsetTop;
+
+                // 用滑的
+                scroll_block_el.scrollTo({
+                    top: each_block.offsetTop,
+                    behavior: "smooth"
+                })
+
+            });
+        }
+
+    </script>
+    
+</body>
+</html>

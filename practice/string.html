@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            // console.log(document);
+
+            var the_btn = document.getElementById("btn");
+
+            // the_btn.onclick = function(){};
+
+            // console.log(the_btn);
+
+            the_btn.addEventListener("click", function(){
+                // console.log("aaa");
+                // alert("感謝購買");
+                var item1 = document.getElementById("item1");
+                var item2 = document.getElementById("item2");
+                var result = document.getElementById("result");
+
+                // console.log( item1.value );
+                // console.log( parseInt(item1.value) );
+
+                var cal_result = parseInt(item1.value) + parseInt(item2.value);
+                // console.log(cal_result);
+                
+                result.innerHTML = cal_result;
+
+            });
+        });
+
+        
+        
+        
+        // var my_str = "這是字串 english";
+
+        // console.log(my_str);
+
+        // var my_str = "這是字串 \"english\"";
+        // console.log(my_str); // 這是字串 "english"
+
+        // var my_str = "這是字串 \\ english";
+        // console.log(my_str); // 這是字串 \ english
+
+    </script>
+
+</head>
+<body>
+
+
+    <form action="http://tw.yahoo.com" method="get">
+        <input type="text" id="item1" placeholder="單價" name="price">
+        
+        <input type="text" id="item2" placeholder="數量" name="count">
+        
+        <button type="button" id="btn">按鈕</button>
+    </form>
+
+    <br>
+    <p>結果：<span id="result">ttt</span></p>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <button type="button" id="btn">按鈕</button>
+    
+    <!-- script 寫在 body 的結束標籤之前 -->
+    <script>
+
+
+      var btn = document.getElementById("btn");
+      btn.addEventListener("click", function(){
+        console.log("視窗的 innerWidth：" + window.innerWidth);
+        console.log("視窗的 outerWidth：" + window.outerWidth);
+        console.log("視窗的 innerHeight：" + window.innerHeight);
+        console.log("視窗的 outerHeight：" + window.outerHeight);
+      });
+
+      
+    </script>
+  </body>
+</html>

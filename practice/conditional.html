@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>conditional</h1>
+
+    <script>
+
+        var a = "b";
+
+        // switch(a){
+        //     case "b":
+        //         console.log("b");
+        //         break;
+        //     case 1:
+        //         console.log("1");
+        //         break;
+        //     case "c":
+        //         console.log("c");
+        //         break;
+        //     default:
+        //         console.log("default");
+        // }
+
+        var store_name = "A 店家";
+        var store_star = -2;
+
+        if(store_star >= 0){
+
+            switch(store_star){
+                case 0:
+                    console.log(store_name + "無獲得星等");
+                    break;
+                case 1:
+                    console.log(store_name + "星等1顆星");
+                    break;
+                case 2:
+                    console.log(store_name + "星等2顆星");
+                    break;
+                default:
+                    console.log(store_name + "星等超過2顆星");
+            }
+        }else if(store_star <= -1){
+                console.log(store_name + "星等是負的");
+        }
+    </script>
+    
+</body>
+</html>

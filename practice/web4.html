@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul.list{
+            border: 1px solid black;
+        }
+
+        ul.list > li{
+            border: 1px solid red;
+
+            
+            /* opacity: 1;
+            transition: opacity 1s; */
+           
+        }
+
+        
+        /* ul.list > li.-remove{
+            opacity: 0;
+        }
+        */
+
+        ul.list > li::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        button.del{
+            float: right;
+        }
+        /*
+        button[disabled].del{
+            background-color: black;
+            color: white;
+        }
+        */
+    </style>
+</head>
+<body>
+
+    <ul class="list">
+        <li>
+          <button type="button" class="del">刪除</button>
+          這是文字1
+        </li>
+        <li>
+          <button type="button" class="del">刪除</button>
+          這是文字2
+        </li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var del = document.getElementsByClassName("del");
+        // console.log(del); 
+        
+        for(i = 0; i < del.length; i++){
+            del[i].addEventListener("click",function(){
+
+            // console.log(this);
+            // this.closest("li").remove();
+
+            // 寫法1:太麻煩了
+            // this.disabled = true;
+            // var closest_li = this.closest("li");
+            // closest_li.style.opacity = 1;
+            
+            // let interval_id = setInterval(function(){
+            //     // console.log("ssss");
+            //     // console.log(closest_li.style.opacity)
+            
+            //     if(closest_li.style.opacity <= 0){
+            //         // 不要在執行setinterval、移除li
+            //         console.log("結束");
+            //         clearInterval(interval_id);
+            //         closest_li.remove();
+                    
+            //     }else{
+            //         // opacity 要遞減0.1
+            //         // closest_li.style.opacity = closest_li.style.opacity - 0.1;
+            //         closest_li.style.opacity -= 0.1;
+            //     }
+
+            // },100);
+
+            // 寫法二
+                // this.disabled = true;
+                // let closest_li = this.closest("li");
+                // closest_li.classList.add("-remove");
+                
+                // setTimeout(function(){
+                //     closest_li.remove();
+                // },1000);
+
+            // 寫法三
+                // this.disabled = true;
+                // $(this).closest("li").fadeOut(1000,function(){
+                //     // console.log(this);
+                //     this.remove();
+                // });
+
+            // 寫法四
+                $("button.del").on("click",function(){
+                    this.disabled = true;
+                    $(this).closest("li").fadeOut(1000,function(){
+                        this.remove();
+                    });
+                });
+                
+            });
+        };
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>傳值</h1>
+
+    <script>
+        // var a = [1, 2];
+        // function add_number(x){
+        //     x.push(3);
+        // }
+        // add_number(a);  // 傳的是記憶體中的位址
+
+        // console.log(a); // [1, 2, 3]
+
+        // var a = {first: "123", second: "456"};
+        // function add_key(x){
+        //     x.third = "789";
+        // }
+        // add_key(a);    // 傳的是記憶體中的位址
+
+        // console.log(a); // {first: "123", second: "456", third: "789"}
+        
+        var car = {
+            doors: 5,
+            price: "299"
+        };
+
+        console.log(car);
+        var car_str = JSON.stringify(car);
+        console.log(car_str);
+
+        var car_obj = JSON.parse(car_str);
+        console.log(car_obj);
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #file_input{
+        border: 1px solid red;
+        /* display: none; */
+      }
+      #file_name{
+        border: 1px solid blue;
+        display: inline-block;
+        min-width: 50px;
+        height: 18px;
+      }
+      #img_block{
+        border: 1px solid black;
+      }
+      .small_width{
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <input type="file" id="file_input" multiple>
+    <button type="button" id="choose_file">選取檔案</button>
+
+    <div id="img_block">
+      選擇的檔案：
+      <span id="file_name"></span><br>
+    </div>
+
+    <script>
+
+        var choose_file = document.getElementById("choose_file");
+        // console.log(choose_file);
+        var file_input = document.getElementById("file_input");
+        
+        choose_file.addEventListener("click", function(){
+            // console.log("ttt");
+            file_input.click();
+        });
+
+        file_input.addEventListener("change",function(){
+            // console.log("aaaa");
+            // console.log(this.files);
+            // console.log(this.files[0]);
+            console.log(this.files[0].name);
+            var file_name = document.getElementById("file_name");
+            file_name.innerHTML = this.files[0].name;
+
+            let reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+
+            reader.addEventListener("load",function(){
+
+                // console.log(this);
+                // console.log(reader.result);
+
+                let img_block = document.getElementById("img_block");
+                // img_block.insertAdjacentHTML("beforeend", '<img src="'+ reader.result +'" class="small_width">');
+                img_block.insertAdjacentHTML("beforeend",`<img src="${reader.result}" class="small_width">`)
+                
+            });
+
+        });
+
+        
+
+    </script>
+  </body>
+</html>
